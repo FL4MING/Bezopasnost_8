@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title></title>
+	<style type="text/css">
+		input {
+			margin-bottom: 5px;
+		}
+		select {
+			margin-bottom: 5px;
+		}
+	</style>
+</head>
+<body>
+	<form name="form" action="javascript:count()" method="post">
+		<select name="select">
+			<option>+</option>
+			<option>*</option>
+			<option>^</option>
+		</select>
+	<br>
+		<input type="text" name="a" value="0"> - a
+		<br>
+		<input type="text" name="b" value="0"> - b
+		<br>
+		<input type="text" name="c" value="0"> - c
+		<br>
+		<input type="submit">
+	</form>
+	<script type="text/javascript">
+		function count() {
+			var action = document.form.select.value;
+			var a = document.form.a.value;
+			var b = document.form.b.value;
+			var c = document.form.c.value;
+			var result;
+
+			if (action == "+") {
+				result = Number(a) + Number(b);
+			}
+			else if (action == "*") {
+				result = Number(a * b);
+			}
+			else {
+				result = Math.pow(a,b);
+			}
+
+			if(result>c) {
+				result =result%c;
+			}
+
+			if (result == c) {
+				result = c;
+			}
+			
+			alert (result);
+		}
+	</script>
+</body>
+</html>
